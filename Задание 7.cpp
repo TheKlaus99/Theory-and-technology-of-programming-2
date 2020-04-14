@@ -35,7 +35,7 @@ int main() {
 	cout << endl << "Массив: " << endl << endl;
 	for (int i = 0; i < a; i++) {
 		for (int j = 0; j < a; j++) {
-			arr[i][j] = rand() % 69 + 1;
+			arr[i][j] = rand() % 79 + 1;
 			cout << arr[i][j] << "\t";
 		}
 		cout << endl << endl;
@@ -57,7 +57,6 @@ int main() {
 		for (int i = 0; i < a; i++) {
 			if (arr[i][j] < 50) {
 
-				m++;
 				n = arr[i][j];
 
 				if (n == 1 ||
@@ -78,14 +77,17 @@ int main() {
 					n == 47) {
 
 					cout << n << "\t\t";
+
+					m++;
 				}
 
 			}
 		}
 	}
 
-	if (n == 0) {
-		cout << "Для ввода разрешены только числа!" << endl;
+	if (m == 0) {
+		cout << "Числа, которые меньше пятидесяти не найдены!" << endl << endl;
+		printf("========================================================================\n");
 		return 0;
 	}
 
