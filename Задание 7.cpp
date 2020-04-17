@@ -146,20 +146,43 @@ int main() {
 
 
 
-	cout << endl << endl;
 
+
+
+
+
+	int bb, mid, key, mid1;
+
+	cout << endl << endl;
+	key = 42;
+	mid = (a) / 2;
 
 	for (int i = 0; i < a; i++) {
 		for (int j = 0; j < a; j++) {
 
+			
+
+			if (key == arr[i][j + mid]) {
+				cout << "Число нашлось" << key;
+				break;
+				cout << arr[i][j + mid];
+				
+			}
+			if (key > arr[i][j + mid]) {
+
+				
+			}
+			if (key < arr[i][j + mid]) {
+				
+			}
 
 
-			
-			
-		}
+		}	
 	}
 
 
+	cout << endl << key << endl;
+	cout << endl << mid << endl;
 
 
 
@@ -177,7 +200,11 @@ int main() {
 
 
 
-	cout << endl << endl << endl << "Количество простых чисел, которые меньше пятидесяти: " << m1 << endl << endl;
+
+
+
+
+	cout << endl << endl << endl << "Простое число, которое меньше 50: " << m1 << endl << endl;
 
 	printf("========================================================================\n");
 
