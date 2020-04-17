@@ -122,9 +122,6 @@ int main() {
 		}
 	}
 
-
-	
-
 	//Вывод массива
 	for (int i = 0; i < a; i++) {
 		for (int j = 0; j < a; j++) {
@@ -150,23 +147,19 @@ int main() {
 
 
 	cout << endl << endl;
-	int kk = 0, gg=0;
+
 
 	for (int i = 0; i < a; i++) {
 		for (int j = 0; j < a; j++) {
 
-			while (kk == !a) {
-				kk++;
-				n = arr[i][j];
-				gg++;
 
-				cout << n << "\t";
-			}
+
+			
 			
 		}
 	}
 
-	cout << gg << endl;
+
 
 
 
