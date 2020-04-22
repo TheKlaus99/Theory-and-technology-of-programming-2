@@ -146,37 +146,62 @@ int main() {
 	int key;
 
 	cout << "Введите key: " << endl;
+	cout << "Разрешены только данные числа - 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47" << endl;
+
+
 	cin >> key;
+
+	/*
+	while (key != 1 &&
+		key != 2 &&
+		key != 3 &&
+		key != 5 &&
+		key != 7 &&
+		key != 11 &&
+		key != 13 &&
+		key != 17 &&
+		key != 19 &&
+		key != 23 &&
+		key != 29 &&
+		key != 31 &&
+		key != 37 &&
+		key != 41 &&
+		key != 43 &&
+		key != 47) {
+		cout << "ЕЩЕ РАЗ !!!!!!!!!" << endl;
+		cin >> key;
+
+	}*/
 
 	int left = 0; 
 	int right = a;
-	int search = -1; // найденный индекс элемента равен -1 (элемент не найден)
+	int search = -1;
 
 	for (int i = 0; i < a; i++) {
 		for (int j = 0; j < a; j++) {
 		
-			while (left <= right) // пока левая граница не "перескочит" правую
-			{
-
-						int mid = (left + right) / 2; // ищем середину отрезка
-
-						if (key == arr[i][mid]) {  // если ключевое поле равно искомому
-							search = mid;     // мы нашли требуемый элемент,
-							break;            // выходим из цикла
-						}
-						if (key < arr[i][mid])     // если искомое ключевое поле меньше найденной середины
-							right = mid - 1;  // смещаем правую границу, продолжим поиск в левой части
-						else                  // иначе
-							left = mid + 1;   // смещаем левую границу, продолжим поиск в правой части
-						arr[i+1][j];
-						
-			}
+		
 			
-			if (search == -1) {     // если индекс элемента по-прежнему -1, элемент не найден
+				while (left <= right) 
+				{
+
+					int mid = (left + right) / 2; 
+
+					if (key == arr[i][mid]) {  
+						search = mid;     
+						break;           
+					}
+					if (key < arr[i][mid])     
+						right = mid - 1;  
+					else                  
+						left = mid + 1;   
+				}
+				
+			if (search == -1) {
 				printf("Элемент не найден!\n");
-				arr[i+1][j];
+				getchar(); getchar();
 			}
-			else {         // иначе выводим элемент, его ключ и значение
+			else {
 				printf("%d. key= %d. r[%d]=%d", search, arr[i][search]);
 				getchar(); getchar();
 			}
