@@ -106,8 +106,6 @@ int main() {
 
 	cout << endl << "Простые числа, которые меньше пятидесяти: " << endl << endl;
 
-	int m1 = 0, n1;
-
 	// Сортировка массива
 	for (int i = 0; i < a; i++) {
 		for (int j = 0; j < a; j++) {
@@ -143,46 +141,50 @@ int main() {
 
 
 
-
-
-
-
-
-
-
-
-	int bb, mid, key, mid1;
-
 	cout << endl << endl;
-	key = 42;
-	mid = (a) / 2;
+
+	int key;
+
+	cout << "Введите key: " << endl;
+	cin >> key;
+
+	int left = 0; 
+	int right = a;
+	int search = -1; // найденный индекс элемента равен -1 (элемент не найден)
 
 	for (int i = 0; i < a; i++) {
 		for (int j = 0; j < a; j++) {
+		
+			while (left <= right) // пока левая граница не "перескочит" правую
+			{
 
+						int mid = (left + right) / 2; // ищем середину отрезка
+
+						if (key == arr[i][mid]) {  // если ключевое поле равно искомому
+							search = mid;     // мы нашли требуемый элемент,
+							break;            // выходим из цикла
+						}
+						if (key < arr[i][mid])     // если искомое ключевое поле меньше найденной середины
+							right = mid - 1;  // смещаем правую границу, продолжим поиск в левой части
+						else                  // иначе
+							left = mid + 1;   // смещаем левую границу, продолжим поиск в правой части
+						arr[i+1][j];
+						
+			}
 			
-
-			if (key == arr[i][j + mid]) {
-				cout << "Число нашлось" << key;
-				break;
-				cout << arr[i][j + mid];
-				
+			if (search == -1) {     // если индекс элемента по-прежнему -1, элемент не найден
+				printf("Элемент не найден!\n");
+				arr[i+1][j];
 			}
-			if (key > arr[i][j + mid]) {
-
-				
+			else {         // иначе выводим элемент, его ключ и значение
+				printf("%d. key= %d. r[%d]=%d", search, arr[i][search]);
+				getchar(); getchar();
 			}
-			if (key < arr[i][j + mid]) {
-				
-			}
-
-
-		}	
+			
+		}
 	}
 
 
-	cout << endl << key << endl;
-	cout << endl << mid << endl;
 
 
 
@@ -201,11 +203,7 @@ int main() {
 
 
 
-
-
-
-	cout << endl << endl << endl << "Простое число, которое меньше 50: " << m1 << endl << endl;
-
+	
 	printf("========================================================================\n");
 
 
