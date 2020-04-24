@@ -23,19 +23,26 @@ int main() {
 		cin >> a;
 	}
 
-	// Выделение памяти под массив
+	// Выделение памяти под массивы
 	int** arr;
+	int* r;
+
+	// Определение для одномерного и двумерного массива
+	int sA = a * a;
+
 	arr = new int* [a];
-	for (int i = 0; i < a; i++)
-	{
+
+	r = new int[a * a];
+
+	for (int i = 0; i < a; i++) {
 		arr[i] = new int[a];
 	}
 
-	// Массив
+	// Вывод двумерного массива
 	cout << endl << "Массив: " << endl << endl;
 	for (int i = 0; i < a; i++) {
 		for (int j = 0; j < a; j++) {
-			arr[i][j] = rand() % 79 + 1;
+			arr[i][j] = rand() % 99 + 1;
 			cout << arr[i][j] << "\t";
 		}
 		cout << endl << endl;
@@ -53,6 +60,7 @@ int main() {
 
 	int m = 0, n;
 
+	// Последовательный поиск
 	for (int j = 0; j < a; j++) {
 		for (int i = 0; i < a; i++) {
 			if (arr[i][j] < 50) {
@@ -104,54 +112,48 @@ int main() {
 	cout << endl << ">>>   БИНАРНЫЙ ПОИСК   <<<" << endl;
 	printf("========================================================================\n");
 
-	cout << endl << "Простые числа, которые меньше пятидесяти: " << endl << endl;
+	cout << endl;
 
-	// Сортировка массива
+	// Перевод двумерного массива в одномерный
+	int Ai = 0;
 	for (int i = 0; i < a; i++) {
-		for (int j = 0; j < a; j++) {
-			for (int k = a - 1; k > j; k--)
-				if (arr[i][k] < arr[i][k - 1]) {
-
-					int tmp = arr[i][k];
-					arr[i][k] = arr[i][k - 1];
-					arr[i][k - 1] = tmp;
-
-				}
+		for (int j = 0; j < a; j++, Ai++) {
+			r[Ai] = arr[i][j];
 		}
 	}
 
-	//Вывод массива
-	for (int i = 0; i < a; i++) {
-		for (int j = 0; j < a; j++) {
-			cout << arr[i][j] << "\t";
-		}
-		cout << endl << endl;
+	// Вывод одномерного массива
+	cout << "Одномерный массив: " << endl << endl;
+	for (int i = 0; i < sA; i++) {
+		cout << r[i] << "\t";
 	}
 
+	cout << endl << endl << endl;
 
+	// Сортировка одномерного массива
+	for (int i = 0; i < sA; i++)
+		for (int j = i + 1; j < sA; j++)
+			if (r[i] > r[j]) {
+				int buf = r[i];
+				r[i] = r[j];
+				r[j] = buf;
+			}
 
-
-
-
-
-
-
-
-
-
-
+	// Вывод отсортировонного одномерного массива
+	cout << "Отсортированный одномерный массив: " << endl << endl;
+	for (int i = 0; i < sA; i++)
+		cout << r[i] << "  ";
 
 	cout << endl << endl;
 
+	int left = 0;
+	int right = sA;
+	int search = -1;
 	int key;
 
-	cout << "Введите key: " << endl;
-	cout << "Разрешены только данные числа - 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47" << endl;
-
-
+	cout << "Введите число (разрешены только данные числа: 1; 2; 3; 5; 7; 11; 13; 17; 19; 23; 29; 31; 37; 41; 43; 47): " << endl;
 	cin >> key;
 
-	/*
 	while (key != 1 &&
 		key != 2 &&
 		key != 3 &&
@@ -168,67 +170,42 @@ int main() {
 		key != 41 &&
 		key != 43 &&
 		key != 47) {
-		cout << "ЕЩЕ РАЗ !!!!!!!!!" << endl;
+		cout << "Разрешены только простые числа до 50! Введите еще раз: " << endl;
 		cin >> key;
-
-	}*/
-
-	int left = 0; 
-	int right = a;
-	int search = -1;
-
-	for (int i = 0; i < a; i++) {
-		for (int j = 0; j < a; j++) {
-		
-		
-			
-				while (left <= right) 
-				{
-
-					int mid = (left + right) / 2; 
-
-					if (key == arr[i][mid]) {  
-						search = mid;     
-						break;           
-					}
-					if (key < arr[i][mid])     
-						right = mid - 1;  
-					else                  
-						left = mid + 1;   
-				}
-				
-			if (search == -1) {
-				printf("Элемент не найден!\n");
-				getchar(); getchar();
-			}
-			else {
-				printf("%d. key= %d. r[%d]=%d", search, arr[i][search]);
-				getchar(); getchar();
-			}
-			
-		}
 	}
 
+	// Бинарный поиск
+	for (int i = 0; i < sA; i++) {
+		
+		test:
+		while (left <= right) {
 
+			int mid = (left + right) / 2;
 
+			if (key == r[mid]) {
+				search = mid;
+				break;
+			}
+			if (key < r[mid]) {
+				right = mid - 1;
+			}
+			else {
+				left = mid + 1;
+			}
+		}
 
+		if (search >= 1) {
+			cout << "Элемент " << r[search] << " найден!" << endl << endl;
+			break;
+		}
+		while (search == -1) {
+			printf("Элемент не найден!\n");
+			cin >> key;
+			goto test;
+		}
 
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 	printf("========================================================================\n");
 
 
