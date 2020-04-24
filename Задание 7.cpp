@@ -112,7 +112,7 @@ int main() {
 	cout << endl << ">>>   БИНАРНЫЙ ПОИСК   <<<" << endl;
 	printf("========================================================================\n");
 
-	/*   cout << endl;   */
+	   cout << endl;   
 
 	// Перевод двумерного массива в одномерный
 	int Ai = 0;
@@ -123,12 +123,12 @@ int main() {
 	}
 
 	// Вывод одномерного массива
-	/*   cout << "Одномерный массив: " << endl << endl;
+	   cout << "Одномерный массив: " << endl << endl;
 	for (int i = 0; i < sA; i++) {
 		cout << r[i] << "\t";
-	}   */
+	}   
 
-	/*   cout << endl << endl << endl;   */
+	   cout << endl << endl << endl;   
 
 	// Сортировка одномерного массива
 	for (int i = 0; i < sA; i++)
@@ -140,11 +140,11 @@ int main() {
 			}
 
 	// Вывод отсортировонного одномерного массива
-	/*   cout << "Отсортированный одномерный массив: " << endl << endl;
+	   cout << "Отсортированный одномерный массив: " << endl << endl;
 	for (int i = 0; i < sA; i++)
-		cout << r[i] << "  ";   */
+		cout << r[i] << "  ";   
 
-	/*   cout << endl;   */
+	   cout << endl;   
 
 	int left = 0;
 	int right = sA;
@@ -193,7 +193,7 @@ int main() {
 			}
 		}
 
-		if (search >= 1) {
+		if (search >= 0) {
 			cout << "Элемент " << r[search] << " найден!" << endl << endl;
 			break;
 		}
