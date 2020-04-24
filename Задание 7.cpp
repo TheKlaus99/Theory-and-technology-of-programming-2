@@ -177,7 +177,7 @@ int main() {
 	// Бинарный поиск
 	for (int i = 0; i < sA; i++) {
 		
-		test:
+		
 		while (left <= right) {
 
 			int mid = (left + right) / 2;
@@ -198,12 +198,10 @@ int main() {
 			cout << "Элемент " << r[search] << " найден!" << endl << endl;
 			break;
 		}
-		while (search == -1) {
-			printf("Элемент не найден!\n");
-			cin >> key;
-			goto test;
+		if (search == -1) {
+			cout << "Элемент не найден!" << endl << endl;
+			break;
 		}
-
 	}
 
 	printf("========================================================================\n");
